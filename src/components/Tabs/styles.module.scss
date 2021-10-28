@@ -1,17 +1,20 @@
-.content {
+.content_first {
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 15px 0 10px 0;
-  background-color: rgb(236, 229, 229);
+  padding: 15px 0 0 0;
 
   .tablist {
+    width: 200px;
     height: 28px;
     text-align: center;
     min-width: 100px;
     list-style: none;
     text-transform: uppercase;
-    color: rgb(177, 175, 175);
+    background: inherit;
+    color: #6e6893;
+    transition: color 200ms ease-in;
+    cursor: pointer;
 
     ul {
       li.styles_tablist__23c1E.react-tabs__tab--selected {
@@ -21,6 +24,45 @@
   }
 
   .tablist + .tablist {
-    margin-left: 50px;
+    //margin-left: 50px;
   }
+}
+.content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 15px 0 0 0;
+  background-color: #dfdddd;
+  border-top: solid #c6c2de 2px;
+  border-bottom: solid #c6c2de 2px;
+
+  .tablist {
+    font-size: 16px;
+    min-height: 28px;
+    text-align: center;
+    min-width: 200px;
+    list-style: none;
+    text-transform: uppercase;
+    background: inherit;
+    color: #6e6893;
+    transition: color 200ms ease-in;
+    cursor: pointer;
+
+    ul {
+      li.styles_tablist__23c1E.react-tabs__tab--selected {
+        color: rgb(6, 0, 34) !important;
+      }
+    }
+  }
+
+  .tablist + .tablist {
+    //margin-left: 50px;
+  }
+}
+
+.spacing {
+  width: 500px;
+  display: flex;
+  justify-content: flex-start;
 }

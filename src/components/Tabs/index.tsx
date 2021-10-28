@@ -5,15 +5,24 @@ import styles from "./styles.module.scss";
 
 import CreateGlobalStyle from "./styles";
 
-const TabsContainer: React.FC = () => {
+interface Props {
+  title: Array<string>;
+  novoComp: Array<JSX.Element>;
+}
+
+const TabsContainer: React.FC<Props> = ({ title, novoComp }) => {
   return (
     <>
       <CreateGlobalStyle />
       <Tabs forceRenderTabPanel defaultIndex={1}>
-        <TabList>
-          <Tab>The Simpsons</Tab>
-          <Tab>Futurama</Tab>
+        <TabList className={styles.content_first}>
+          {title.map((item) => {
+            return <Tab className={styles.tablist}>{item}</Tab>;
+          })}
+
+          {novoComp}
         </TabList>
+
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList className={styles.content}>
@@ -69,15 +78,18 @@ const TabsContainer: React.FC = () => {
             </TabPanel>
           </Tabs>
         </TabPanel>
+
         <TabPanel>
           <Tabs forceRenderTabPanel>
-            <TabList>
-              <Tab>Philip J. Fry</Tab>
-              <Tab>Turanga Leela</Tab>
-              <Tab>Bender Bending Rodriguez</Tab>
-              <Tab>Amy Wong</Tab>
-              <Tab>Professor Hubert J. Farnsworth</Tab>
-              <Tab>Doctor John Zoidberg</Tab>
+            <TabList className={styles.content}>
+              <Tab className={styles.tablist}>Philip J. Fry</Tab>
+              <Tab className={styles.tablist}>Turanga Leela</Tab>
+              <Tab className={styles.tablist}>Bender Bending Rodriguez</Tab>
+              <Tab className={styles.tablist}>Amy Wong</Tab>
+              <Tab className={styles.tablist}>
+                Professor Hubert J. Farnsworth
+              </Tab>
+              <Tab className={styles.tablist}>Doctor John Zoidberg</Tab>
             </TabList>
             <TabPanel>
               <p>

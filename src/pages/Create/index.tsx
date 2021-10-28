@@ -8,7 +8,7 @@ const Create: React.FC = () => {
   return (
     <Container>
       <Header />
-      <Tabs />
+      <Tabs title={["teste1", "teste2"]} novoComp={[<Header />]} />
     </Container>
   );
 };
