@@ -8,7 +8,11 @@ const Create: React.FC = () => {
   return (
     <Container>
       <Header />
-      <Tabs title={["teste1", "teste2"]} novoComp={[<Header />]} />
+      <Tabs
+        main={["teste1", "teste2"]}
+        secundary={["teste1 primeira", "teste2 primeira"]}
+        component={[<Header />]}
+      />
     </Container>
   );
 };

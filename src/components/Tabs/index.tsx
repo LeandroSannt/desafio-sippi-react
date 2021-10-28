@@ -6,31 +6,28 @@ import styles from "./styles.module.scss";
 import CreateGlobalStyle from "./styles";
 
 interface Props {
-  title: Array<string>;
-  novoComp: Array<JSX.Element>;
+  main: Array<string>;
+  secundary: Array<string>;
+  component: Array<JSX.Element>;
 }
 
-const TabsContainer: React.FC<Props> = ({ title, novoComp }) => {
+const TabsContainer: React.FC<Props> = ({ main, secundary, component }) => {
   return (
     <>
       <CreateGlobalStyle />
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList className={styles.content_first}>
-          {title.map((item) => {
+          {main.map((item) => {
             return <Tab className={styles.tablist}>{item}</Tab>;
           })}
-
-          {novoComp}
         </TabList>
 
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList className={styles.content}>
-              <Tab className={styles.tablist}>Homer Simpson</Tab>
-              <Tab className={styles.tablist}>Marge Simpson</Tab>
-              <Tab className={styles.tablist}>Bart Simpson</Tab>
-              <Tab className={styles.tablist}>Lisa Simpson</Tab>
-              <Tab className={styles.tablist}>Maggie Simpson</Tab>
+              {secundary.map((item) => {
+                return <Tab className={styles.tablist}>{item}</Tab>;
+              })}
             </TabList>
             <TabPanel>
               <p>Husband of Marge; father of Bart, Lisa, and Maggie.</p>
