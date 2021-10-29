@@ -9,9 +9,15 @@ const Create: React.FC = () => {
     <Container>
       <Header />
       <Tabs
-        main={["teste1", "teste2"]}
-        secundary={["teste1 primeira", "teste2 primeira"]}
-        component={[<Header />]}
+        subTabs={false}
+        main={["primeiro", "segundo", "terceiro", "quarto"]}
+        //subMain={["primeiro sub", "segundo sub", "terceiro sub", "quarto sub"]}
+        component={[
+          <div>primeiro componente</div>,
+          <div>segundo componente</div>,
+          <div>terceiro componentes</div>,
+          <div>quarto componentes</div>,
+        ]}
       />
     </Container>
   );

@@ -1,0 +1,58 @@
+    
+    //estrutura de componente para exbir as subtabs 
+    <Tabs
+        subTabs={false}
+        main={["primeiro", "segundo", "terceiro", "quarto"]}
+        subMain={["primeiro sub", "segundo sub", "terceiro sub", "quarto sub"]}
+        component={[
+          <div>primeiro componente</div>,
+          <div>segundo componente</div>,
+          <div>terceiro componentes</div>,
+          <div>quarto componentes</div>,
+        ]}
+        secondSubMain={["quarto", "quinto", "sexto", "setimo"]}
+        secondComponent={[
+          <div>componente 2</div>,
+          <div>componente 3</div>,
+          <div>componente 4</div>,
+          <div>componente 5</div>,
+        ]}
+        thirdSubMain={[
+          "decimo",
+          "decimo primeiro",
+          "decimo segundo",
+          "decimo terceiro",
+        ]}
+        thirdComponent={[
+          <div>componente 10</div>,
+          <div>componente 11</div>,
+          <div>componente 12</div>,
+          <div>componente 13</div>,
+        ]}
+        fourthSubMain={[
+          "decimo quarto",
+          "decimo quinto",
+          "decimo sexto",
+          "decimo setimo",
+        ]}
+        fourthComponent={[
+          <div>componente 14</div>,
+          <div>componente 15</div>,
+          <div>componente 16</div>,
+          <div>componente 17</div>,
+        ]}
+      />
+
+
+      //estrutura de componente para exibir as abas sem as sub abas
+
+      <Tabs
+        subTabs={false}
+        main={["primeiro", "segundo", "terceiro", "quarto"]}
+        component={[
+          <div>primeiro componente</div>,
+          <div>segundo componente</div>,
+          <div>terceiro componentes</div>,
+          <div>quarto componentes</div>,
+        ]}
+      />
