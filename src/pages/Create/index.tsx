@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import Header from "../../components/header";
 import MacroEntrega from "../../components/Macroentregas";
 
-import GraficoPizza from "../../components/graficoPizza";
+import GraficoArea from "../../components/graficoArea";
 
 const arr = ["entrega 1", "entrega 2", "entrega 3"];
 

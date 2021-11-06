@@ -1,6 +1,7 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import "./styles.module.scss";
 import GraficoPizza from "../graficoPizza";
+import GraficoArea from "../graficoArea";
 import styles from "./styles.module.scss";
 
 interface MacronEntregaProps {
@@ -92,7 +93,9 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
 
       <div className={styles.graphic}>
         <h2>Historico de progresso</h2>
-        <div></div>
+        <div className={styles.area}>
+          <GraficoArea />
+        </div>
       </div>
     </main>
   );
