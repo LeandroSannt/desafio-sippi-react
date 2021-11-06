@@ -41,11 +41,15 @@ main {
         display: flex;
         justify-content: space-between;
         > div {
+          width: 200px;
+          text-align: right;
           span {
             display: block;
             color: #9c9c9c;
           }
           h4 {
+            margin-right: 25px;
+            text-align: right;
             color: black;
             font-family: "Open Sans", sans-serif;
             font-weight: 800;

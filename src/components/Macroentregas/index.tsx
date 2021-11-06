@@ -1,5 +1,6 @@
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import "./styles.module.scss";
+import GraficoPizza from "../graficoPizza";
 import styles from "./styles.module.scss";
 
 interface MacronEntregaProps {
@@ -37,6 +38,8 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
     fetchData();
   }, []);
 
+  console.log(100 - Number(conclusion));
+
   return (
     <main>
       <div>
@@ -66,7 +69,14 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
               <span>% de conclusão</span>
               <h4>{conclusion}%</h4>
             </div>
-            <div>grafico</div>
+            <div>
+              {conclusion && (
+                <GraficoPizza
+                  total={+conclusion}
+                  conclusion={100 - Number(conclusion)}
+                />
+              )}
+            </div>
           </div>
 
           <form onSubmit={handleSubmit}>

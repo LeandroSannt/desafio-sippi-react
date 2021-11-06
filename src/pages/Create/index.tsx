@@ -4,6 +4,8 @@ import { Container } from "./styles";
 import Header from "../../components/header";
 import MacroEntrega from "../../components/Macroentregas";
 
+import GraficoPizza from "../../components/graficoPizza";
+
 const arr = ["entrega 1", "entrega 2", "entrega 3"];
 
 const Create: React.FC = () => {
