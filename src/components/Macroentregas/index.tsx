@@ -1,9 +1,9 @@
+//esse componente ira precisar de um metodo que ira fazer um post para enviar o valor do progresso
 import React, { FormEvent, useEffect, useRef, useState } from "react";
 import "./styles.module.scss";
 import GraficoPizza from "../graficoPizza";
 import GraficoArea from "../graficoArea";
 import styles from "./styles.module.scss";
-import { v4 as uuid } from "uuid";
 
 interface MacronEntregaProps {
   deliverables: Array<string>;
@@ -11,53 +11,38 @@ interface MacronEntregaProps {
   duration: number;
 }
 
-interface DataProps {
-  id: string;
-  value: string | undefined;
-  date: Date;
-}
-
 const Macroentrega: React.FC<MacronEntregaProps> = ({
   deliverables,
   title,
   duration,
 }) => {
-  let [conclusion, setConclusion] = useState(localStorage.getItem("mykey"));
+  let [conclusion, setConclusion] = useState("0");
   const inputEl = useRef<HTMLInputElement>(null);
 
-  const percetageDate: DataProps[] = [];
+  const percetage: string[] = [];
 
   async function fetchData() {
-    const storage = localStorage.getItem("mykey");
-    setConclusion(storage);
+    //aqui vai o metodo para salvar o valor no banco de dados
+
+    const value = inputEl.current?.value;
+    if (value) {
+      setConclusion(value);
+    }
   }
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
-    const value = inputEl.current?.value;
-
-    if (value) {
-      localStorage.setItem("mykey", value.toString());
-
-      fetchData();
-    }
-
-    const obj = {
-      id: uuid(),
-      value: value,
-      date: new Date(),
-    };
-
-    const dataProgress = localStorage.getItem("progress");
-    percetageDate.push(obj);
-
-    localStorage.setItem("progress", JSON.stringify(percetageDate));
+    fetchData();
   }
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  //apos salvar o dados faz um metodo get para trazer um array com os valores atualizados
+
+  const arr = [10, 60, 80, 70, 90];
 
   return (
     <main>
@@ -112,7 +97,7 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
       <div className={styles.graphic}>
         <h2>Historico de progresso</h2>
         <div className={styles.area}>
-          <GraficoArea progress={} />
+          <GraficoArea value={arr} />
         </div>
       </div>
     </main>

@@ -1,22 +1,29 @@
+// esse componente ira precisar de uma get que ira pegar todos
+//os progressos e trasformar em um array
 import React from "react";
 import ReactApexChart from "react-apexcharts";
+import moment from "moment";
+import "./grafico.module.scss";
 
-interface objProgressProps {
-  id: string;
-  date: Date;
-  value: number;
+interface arrProgressProps {
+  value: Array<number>;
 }
 
-interface ProgressProps {
-  progress: objProgressProps[];
-}
+const GraficoArea: React.FC<arrProgressProps> = ({ value }) => {
+  const capitalize = (str: string) => {
+    if (typeof str !== "string") {
+      return "";
+    }
+    return str.charAt(0).toUpperCase() + str.substr(1);
+  };
 
-const GraficoArea: React.FC<ProgressProps> = () => {
+  const newDate = moment().format("MMM[ - ]DD");
+
   const series = [
     {
       teste: "ola mundo",
       name: "Progresso por mês",
-      data: [49, 32, 70, 32, 50, 95, 41, 90],
+      data: value,
     },
   ];
   const options = {
@@ -38,24 +45,22 @@ const GraficoArea: React.FC<ProgressProps> = () => {
         style: {
           colors: "#9C9C9C",
           fontSize: "16px",
+          height: "10px",
+          cssClass: "teste",
+        },
+
+        rotate: 0,
+        formatter: (value: string) => {
+          return capitalize(newDate);
         },
       },
 
       legend: {
         show: false,
       },
-      categories: [
-        "Jan",
-        "Fev",
-        "Mar",
-        "Abr",
-        "Mai",
-        "Jun",
-        "Jul",
-        "Jul",
-        "Jul",
-      ],
+      categories: [],
     },
+
     yaxis: {
       show: true,
       tickAmount: 4,
