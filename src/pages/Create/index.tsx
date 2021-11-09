@@ -4,7 +4,7 @@ import { Container } from "./styles";
 import Header from "../../components/header";
 import MacroEntrega from "../../components/Macroentregas";
 
-import GraficoArea from "../../components/graficoArea";
+import PurchaseForm from "../../components/PurchaseForm";
 
 const arr = ["entrega 1", "entrega 2", "entrega 3"];
 
@@ -13,11 +13,7 @@ const Create: React.FC = () => {
   return (
     <Container>
       <Header />
-      <MacroEntrega
-        deliverables={arr}
-        title={"titulo teste de macro entrega"}
-        duration={3.5}
-      />
+      <MacroEntrega deliverables={arr} title="teste" duration={50} />
     </Container>
   );
 };

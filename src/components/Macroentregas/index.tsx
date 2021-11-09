@@ -3,11 +3,18 @@ import "./styles.module.scss";
 import GraficoPizza from "../graficoPizza";
 import GraficoArea from "../graficoArea";
 import styles from "./styles.module.scss";
+import { v4 as uuid } from "uuid";
 
 interface MacronEntregaProps {
   deliverables: Array<string>;
   title: string;
   duration: number;
+}
+
+interface DataProps {
+  id: string;
+  value: string | undefined;
+  date: Date;
 }
 
 const Macroentrega: React.FC<MacronEntregaProps> = ({
@@ -17,6 +24,8 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
 }) => {
   let [conclusion, setConclusion] = useState(localStorage.getItem("mykey"));
   const inputEl = useRef<HTMLInputElement>(null);
+
+  const percetageDate: DataProps[] = [];
 
   async function fetchData() {
     const storage = localStorage.getItem("mykey");
@@ -33,13 +42,22 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
 
       fetchData();
     }
+
+    const obj = {
+      id: uuid(),
+      value: value,
+      date: new Date(),
+    };
+
+    const dataProgress = localStorage.getItem("progress");
+    percetageDate.push(obj);
+
+    localStorage.setItem("progress", JSON.stringify(percetageDate));
   }
 
   useEffect(() => {
     fetchData();
   }, []);
-
-  console.log(100 - Number(conclusion));
 
   return (
     <main>
@@ -94,7 +112,7 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
       <div className={styles.graphic}>
         <h2>Historico de progresso</h2>
         <div className={styles.area}>
-          <GraficoArea />
+          <GraficoArea progress={} />
         </div>
       </div>
     </main>
