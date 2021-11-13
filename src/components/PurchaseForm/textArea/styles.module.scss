@@ -1,0 +1,23 @@
+.contentTextArea {
+  & + .contentTextArea {
+    margin-left: 20px;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #5d5a71;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 10px 15px;
+    background: #eeeeee;
+    border-radius: 6px;
+    border: none;
+    padding: 10px 15px;
+    color: #5d5a71;
+    margin-top: 10px;
+    resize: none;
+  }
+}

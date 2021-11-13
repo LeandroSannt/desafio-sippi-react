@@ -1,0 +1,35 @@
+.container {
+  label {
+    display: flex;
+    flex-direction: column;
+    color: #5d5a71;
+    font-size: 12px;
+    margin-bottom: 30px;
+    font-weight: 600;
+
+    input {
+      background: #eeeeee;
+      border-radius: 6px;
+      border: none;
+      padding: 10px 15px;
+      color: #5d5a71;
+      margin-top: 10px;
+    }
+  }
+
+  input:-webkit-autofill {
+    -webkit-text-fill-color: black !important;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px #fff inset;
+  }
+
+  svg {
+    margin-right: 15px;
+  }
+}
+
+.container + .container {
+  margin-left: 20px;
+}

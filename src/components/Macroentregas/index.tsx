@@ -42,7 +42,7 @@ const Macroentrega: React.FC<MacronEntregaProps> = ({
 
   //apos salvar o dados faz um metodo get para trazer um array com os valores atualizados
 
-  const arr = [10, 60, 80, 70, 90];
+  const arr = [10, 60, 80, 70, 90, 45];
 
   return (
     <main>

@@ -1,11 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&display=swap");
+
 .container {
   min-height: 70%;
   padding: 10px;
 
+  h1 {
+    font-family: "Open Sans", sans-serif;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
   form {
+    border-radius: 8px;
+
     background-color: #fff;
     width: 70%;
     min-height: 400px;
     padding: 30px;
+
+    .inputReduzido {
+      width: 50% !important;
+    }
+
+    .containerSecondeInput {
+      width: 75%;
+      display: flex;
+
+      div {
+        width: 100%;
+      }
+    }
+    .file,
+    .textarea {
+      display: flex;
+      width: 100%;
+    }
+
+    .containerButtom {
+      margin: 40px auto;
+      display: flex;
+      width: 50%;
+      justify-content: center;
+    }
   }
 }

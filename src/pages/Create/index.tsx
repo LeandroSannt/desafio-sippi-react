@@ -13,7 +13,7 @@ const Create: React.FC = () => {
   return (
     <Container>
       <Header />
-      <MacroEntrega deliverables={arr} title="teste" duration={50} />
+      <PurchaseForm />
     </Container>
   );
 };

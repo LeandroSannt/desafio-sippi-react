@@ -1,0 +1,42 @@
+input[type="file"] {
+  display: none;
+}
+
+.input_wrapper {
+  width: 100%;
+  margin-top: 25px;
+
+  p {
+    font-size: 12px;
+    font-weight: 600;
+    color: #5d5a71;
+    margin-bottom: 15px;
+  }
+
+  label {
+    width: 100%;
+    border-radius: 9px;
+    border: dotted #868686 1px;
+    padding: 15px 50px;
+    color: #5d5a71;
+    text-align: center;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+    transition: background 200ms;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+
+    svg {
+      margin-right: 10px;
+      color: #858c94;
+    }
+  }
+  & + .input_wrapper {
+    margin-left: 20px;
+  }
+}
