@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
-import React, { useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import styles from "./styles.module.scss";
 import { Form } from "@unform/web";
 import { FormHandles } from "@unform/core";
@@ -15,29 +15,22 @@ interface PurchaseFormData {
   valueAvailable: string;
   valueSolicited: string;
   adress: string;
+  detailDescription: string;
+  justification: string;
+  term: string;
+  proposal: string;
 }
 
 const PurchaseForm: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  function handleSubmit() {
-    async (data: PurchaseFormData) => {
-      try {
-        const schema = Yup.object().shape({
-          nameItem: Yup.string().required("Nome do item obrigatorio"),
-          valueAvailable: Yup.string().required("Valor obrigatorio"),
-          valueSolicited: Yup.string().required("Valor obrigatorio"),
-          adress: Yup.string().required("Endereço obrigatorio"),
-        });
-
-        await schema.validate(data, {
-          abortEarly: false,
-        });
-        return "ola mundo";
-      } catch (err) {
-        console.log(err);
-      }
-    };
-  }
+  const handleSubmit = useCallback(async (data: PurchaseFormData) => {
+    try {
+      //inserir o data no post
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -46,6 +39,7 @@ const PurchaseForm: React.FC = () => {
         <Input
           type="text"
           label={"NOME DO ITEM"}
+          masks="currency"
           id="oi"
           name="nameItem"
           placeholder="Nome do item"
@@ -77,14 +71,14 @@ const PurchaseForm: React.FC = () => {
           <TextArea
             label="DESCRIÇÃO DETALHADA DO ITEM"
             placeholder="Descrição"
-            name="bio"
+            name="detailDescription"
             rows={5}
             cols={50}
           />
           <TextArea
             label="JUSTIFICATIVA PARA AQUISIÇÃO"
             placeholder="Justificativa"
-            name="bio"
+            name="justification"
             rows={5}
             cols={50}
           />
@@ -95,7 +89,7 @@ const PurchaseForm: React.FC = () => {
             name="term"
             label={"UPLOAD DE TERMO DE REFÊRENCIA"}
             placeholderfile={"Anexar termo de referencia"}
-            icon={<MdFileUpload />}
+            icon={<MdFileUpload size={24} />}
           />
           <File
             name="proposal"
@@ -107,7 +101,9 @@ const PurchaseForm: React.FC = () => {
 
         <div className={styles.containerButtom}>
           <Buttom disabled>Cancelar</Buttom>
-          <Buttom selected>Cadastrar</Buttom>
+          <Buttom type="submit" selected>
+            Cadastrar
+          </Buttom>
         </div>
       </Form>
     </div>
