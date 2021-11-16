@@ -55,7 +55,7 @@ const Input: React.FC<InputProps> = ({ masks, id, name, label, ...rest }) => {
       path: "value",
     });
   }, [fieldName, registerField]);
-
+  //teste
   //const b = defaultValue.replace(/\D/g, "");
 
   return (
