@@ -2,18 +2,16 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Container } from "./styles";
 import Header from "../../components/header";
-import MacroEntrega from "../../components/Macroentregas";
+import ExpenseChart from "../../components/expenseChart";
 
-import PurchaseForm from "../../components/PurchaseForm";
-
-const arr = ["entrega 1", "entrega 2", "entrega 3"];
+const arr = ["entrega 1", "entrega 2", "entrega 3", "entrega 4"];
+const arr2 = [30, 27, 38, 32];
 
 const Create: React.FC = () => {
-  const [perc, usePerc] = useState(2);
   return (
     <Container>
       <Header />
-      <PurchaseForm />
+      <ExpenseChart name={arr} value={arr2} />
     </Container>
   );
 };
